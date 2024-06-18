@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище demoGovnaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date_create" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="vid_texnika_id" Type="int" Nullable="false" />
+    <Property Name="model_texnika" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="problem_description" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="surname" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="midllename" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="phone_number" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="status_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="surname" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="midllename" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="login" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="post_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vid_texnika">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Orders_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Vid_texnika">
+    <End Role="Vid_texnika" Type="Self.Vid_texnika" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vid_texnika">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="vid_texnika_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="post_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище demoGovnaModelContainer">
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vid_texnika" EntityType="Self.Vid_texnika" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Orders_Status" Association="Self.FK_Orders_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Vid_texnika" Association="Self.FK_Orders_Vid_texnika">
+      <End Role="Vid_texnika" EntitySet="Vid_texnika" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Post" Association="Self.FK_Users_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

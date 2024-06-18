@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище demoGovnaModelContainer" CdmEntityContainer="demoGovnaEntities">
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="demoGovnaModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date_create" ColumnName="date_create" />
+          <ScalarProperty Name="vid_texnika_id" ColumnName="vid_texnika_id" />
+          <ScalarProperty Name="model_texnika" ColumnName="model_texnika" />
+          <ScalarProperty Name="problem_description" ColumnName="problem_description" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="midllename" ColumnName="midllename" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="demoGovnaModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="demoGovnaModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="demoGovnaModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="midllename" ColumnName="midllename" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="post_id" ColumnName="post_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vid_texnika">
+      <EntityTypeMapping TypeName="demoGovnaModel.Vid_texnika">
+        <MappingFragment StoreEntitySet="Vid_texnika">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

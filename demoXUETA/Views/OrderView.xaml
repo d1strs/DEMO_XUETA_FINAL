@@ -1,0 +1,51 @@
+﻿<Window x:Class="demoXUETA.Views.OrderView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demoXUETA.Views"
+        mc:Ignorable="d"
+        Title="OrderView" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+            <Label Content="Дата создания"/>
+            <TextBox x:Name="dateCreate"/>
+            <Label Content="Вид техники"/>
+            <ComboBox Name="vid_Tex">
+                <ComboBoxItem Content="Холодильник"/>
+                <ComboBoxItem Content="Стиралка"/>
+                <ComboBoxItem Content="Морозилка"/>
+                <ComboBoxItem Content="Телик"/>
+            </ComboBox>
+            <Label Content="Модель техники"/>
+            <TextBox x:Name="texnika_model"/>
+            <Label Content="Описание проблемы"/>
+            <TextBox x:Name="problem_desc"/>
+            <Label Content="Фамилия"/>
+            <TextBox x:Name="surname"/>
+            <Label Content="Имя"/>
+            <TextBox x:Name="name"/>
+            <Label Content="Отчество"/>
+            <TextBox x:Name="midllename"/>
+            <Label Content="Номер телефона"/>
+            <TextBox x:Name="phone_numb"/>
+            <Label Content="Статус заявки"/>
+            <ComboBox Name="Status">
+                <ComboBoxItem Content="Новая заявка"/>
+                <ComboBoxItem Content="В процессе ремонта"/>
+                <ComboBoxItem Content="Готова к выдаче"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="createNewOrd" Content="Создать" FontSize="40" Margin="0 0 0 10" Click="createNewOrd_Click"/>
+            <Button x:Name="editOrd" Content="Изменить" FontSize="40" Margin="0 0 0 10" Visibility="Collapsed" Click="editOrd_Click"/>
+            <Button x:Name="remOrd" Content="Удалить" FontSize="40" Margin="0 0 0 10" Visibility="Collapsed" Click="remOrd_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
